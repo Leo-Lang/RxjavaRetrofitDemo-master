@@ -39,6 +39,25 @@ public class HttpManager {
         return INSTANCE;
     }
 
+
+    public Observable getObservable(BaseApi baseApi){
+          OkHttpClient.Builder builder = new OkHttpClient.Builder();
+          builder.connectTimeout(baseApi.getConnectionTime(),TimeUnit.SECONDS);
+          if(baseApi.isCache()){
+              builder.addInterceptor(new CookieInterceptor(baseApi.isCache(),baseApi.getUrl()));
+          }
+
+          Retrofit retrofit = new Retrofit.Builder()
+                  .client(builder.build())
+                  .addConverterFactory(GsonConverterFactory.create())
+                  .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                  .baseUrl(baseApi.getBaseUrl())
+                  .build();
+
+          Observable observable = baseApi.getObservable(retrofit);
+          return observable;
+    }
+
     /**
      * 处理http请求
      *

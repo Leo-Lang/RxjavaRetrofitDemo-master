@@ -43,6 +43,12 @@ public abstract class BaseApi<T> implements Func1<BaseResultEntity<T>, T> {
         setCache(true);
     }
 
+    public BaseApi(RxAppCompatActivity rxAppCompatActivity){
+        setRxAppCompatActivity(rxAppCompatActivity);
+        setShowProgress(true);
+        setCache(true);
+    }
+
     /**
      * 设置参数
      *

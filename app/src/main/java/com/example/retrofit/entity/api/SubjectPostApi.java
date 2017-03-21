@@ -38,6 +38,16 @@ public class SubjectPostApi extends BaseApi {
         setCookieNoNetWorkTime(24*60*60);
     }
 
+    public SubjectPostApi(RxAppCompatActivity rxAppCompatActivity){
+        super(rxAppCompatActivity);
+        setShowProgress(true);
+        setCancel(true);
+        setCache(true);
+        setMothed("AppFiftyToneGraph/videoLink");
+        setCookieNetWorkTime(60);
+        setCookieNoNetWorkTime(24*60*60);
+    }
+
 
 
     public boolean isAll() {

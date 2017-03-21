@@ -33,6 +33,12 @@
         android:layout_height="wrap_content"
         android:text="rx+retrofit上传"/>
 
+    <Button
+        android:id="@+id/btn_observable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="获取observable的请求"/>
+
 
     <com.daimajia.numberprogressbar.NumberProgressBar
         android:id="@+id/number_progress_bar"
